@@ -1,0 +1,90 @@
+body {
+   width:100%;
+   position: relative;
+   background-color: #FFE680;
+   overflow: hidden;
+}
+.main{
+   margin-left: auto;
+   margin-right: auto;
+   width: 50%;
+}
+
+.Title {
+   text-align: center;
+}
+
+.theListEditor {
+   display: inline-block;
+}
+
+.itemCheckOff {
+   display: inline;
+   margin: 0;
+//  display: inline-block;
+   float: left;
+   text-align: center;
+   width: 32px;
+   font-size: 1.5em;
+   background-color: white;
+   border-style: solid;
+   border-width: 1px;
+   border-color: #4C1F00;
+}
+
+/*.spacerGap {
+   background-color: #4C1F00;
+   font-size: 1em;
+   width: 1%;
+   border-width: 2px;
+   border-style: solid;
+   border-color: #4C1F00;
+} */
+
+.listEditable {
+   display: inline;
+   padding: 0;
+   margin: 0;
+   border-width: 2px;
+   border-style: solid;
+   border-color: #4C1F00;
+   width: 75%;
+   font-size: 1.5em;
+}
+
+.theListDisplay {
+   margin: 0;
+   padding: 0;
+}
+
+.theList {
+   float: left;
+   list-style: none;
+   margin: 0;
+   padding: 0;
+}
+
+.anItem {
+   list-style: none;
+   display: inline-block;
+}
+
+
+.listItem {
+   width:128px;
+   font-size: 1.5em;
+   background-color: white;
+   border-style: solid;
+   border-width: 1px;
+   border-color: #4C1F00;
+}
+
+.clearFloat {
+   clear: both;
+}
+.footer {
+   width: 50%;
+   margin-left: auto;
+   margin-right: auto;
+}
+
