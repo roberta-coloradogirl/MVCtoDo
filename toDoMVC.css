@@ -20,30 +20,17 @@ body {
    background-color: #4C1F00;
 }
 
-.listChevron {
-   font-size: 1.25em;
-   transform:rotate(90deg);
-   -ms-transform:rotate(90deg); /* IE 9 */
-   -webkit-transform:rotate(90deg); /* Opera, Chrome, and Safari */;
-   display: inline;
-   margin: 0;
-   float: left;
-   text-align: center;
-   width: 26px;
-   height: 26px;
-   background-color: white;
-   border-style: solid;
-   border-width: 2px;
-   border-color: #4C1F00;
-}
 .theListEditor {
    display: inline-block;
    width:400px;
    height: 32px;
 }
 
-.itemCheckOff {
-   font-size: 1.125em;
+.listChevron {
+   font-size: 1.25em;
+   transform:rotate(90deg);
+   -ms-transform:rotate(90deg); /* IE 9 */
+   -webkit-transform:rotate(90deg); /* Opera, Chrome, and Safari */;
    display: inline;
    margin: 0;
    float: left;
@@ -89,6 +76,19 @@ body {
    height: 30px;
 }
 
+.itemCheckOff {
+   font-size: 1.125em;
+   display: inline;
+   margin: 0;
+   float: left;
+   text-align: center;
+   width: 26px;
+   height: 26px;
+   background-color: white;
+   border-style: solid;
+   border-width: 2px;
+   border-color: #4C1F00;
+}
 
 .listItem {
    width: 365px;
@@ -106,10 +106,15 @@ body {
 .clearFloat {
    clear: both;
 }
+
+.removeItem {
+ /*  display: none;  */
+}
+
+}
 .footer {
    width: 400px;
    height: 28px;
-
    margin-left: auto;
    margin-right: auto;
 }
