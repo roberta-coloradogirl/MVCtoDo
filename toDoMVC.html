@@ -19,28 +19,32 @@
                <li class="anItem">
                   <span class="itemCheckOff">&checkmark;</span>
                   <span class="listItem">this</span>
-                  <span class="removeItem clearFloat">x</span>
+                  <span class="removeItem">x</span>
                </li>
                <li class="anItem">
                   <span class="itemCheckOff">&checkmark;</span>
                   <span class="listItem">that</span>
-                  <span class="removeItem clearFloat">x</span>
+                  <span class="removeItem">x</span>
                </li>
             </ul>
          </div>
          <div class="clearFloat">&nbsp;</div>
          <div class="counterBar">
-            <span>to do items</span>
-            <span>All</span><span>Active</span><span>Completed</span>
-            <span><button>clear completed</button></span>
+            <div id="countDiv"><span id="listCount">#</span><span> todo items</span></div>
+            <ul id="displayFilter">
+               <li class="filterButton">All</li>
+               <li class="filterButton">Active</li>
+               <li class="filterButton">Completed</li>
+            </ul>
+            <button id="removeCompleted">clear (<span>#</span>) completed </button>
          </div>
          <div class="clearFloat">&nbsp;</div>
-         <div class="footer">&copy; 2014</div>
+<!--         <div class="footer">&copy; 2014</div>       -->
          <div class="listTemplate" hidden>
             <li class="anItem">
-                  <span class="itemCheckOff">-</span>
-                  <span class="listItem">that</span>
-                  <span class="removeItem clearFloat">x</span>
+               <span class="itemCheckOff">-</span>
+               <span class="listItem">that</span>
+               <span class="removeItem clearFloat">x</span>
             </li>
          </div>
       </div>

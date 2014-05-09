@@ -7,7 +7,7 @@ body {
 .main{
    margin-left: auto;
    margin-right: auto;
-   width: 50%;
+   width: 500px;
 }
 
 .Title {
@@ -15,14 +15,14 @@ body {
 }
 
 .theBar {
-   width:400px;
+   width: 500px;
    height: 12px;
    background-color: #4C1F00;
 }
 
 .theListEditor {
    display: inline-block;
-   width:400px;
+   width: 500px;
    height: 32px;
 }
 
@@ -50,13 +50,13 @@ body {
    border-width: 2px;
    border-style: solid;
    border-color: #4C1F00;
-   width: 365px;
+   width: 466px;
    height: 26px;
    font-size: 1.25em;
 }
 
 .theListDisplay {
-   width: 400px;
+   width: 500px;
    height: 30px;
    margin: 0;
    padding: 0;
@@ -72,8 +72,12 @@ body {
 .anItem {
    list-style: none;
    display: block;
-   width: 400px;
-   height: 30px;
+   width: 500px;
+   height: 26px;
+   background-color: white;
+   border-style: solid;
+   border-width: 2px;
+   border-color: #4C1F00;
 }
 
 .itemCheckOff {
@@ -85,35 +89,84 @@ body {
    width: 26px;
    height: 26px;
    background-color: white;
-   border-style: solid;
-   border-width: 2px;
+   border-right-style: solid;
+   border-right-width: 2px;
    border-color: #4C1F00;
 }
 
 .listItem {
-   width: 365px;
+   width: 438px;
    height: 26px;
    font-size: 1.25em;
-   display: block;
+   display: inline-block;
    padding: 0;
    margin: 0;
    background-color: white;
-   border-style: solid;
-   border-width: 2px;
+   border-left-style: solid;
+   border-left-width: 2px;
    border-color: #4C1F00;
+}
+
+.removeItem {
+   width: 28px;
+   margin: 0;
+   padding: 0;
+   display: inline; 
+   float: right;
+   text-align: center;
+   font-size: 1.125em;
+/*   z-index: 35;    */
 }
 
 .clearFloat {
    clear: both;
 }
 
-.removeItem {
- /*  display: none;  */
+.counterBar{
+   width: 500px;
+   height: 24px;
+   background-color: #CDCDCD;
 }
 
+ #countDiv{
+   display: inline;
+/*  border-style: solid;
+   border-width: 1px;
+   border-color: red;   */
 }
+
+ #listCount{
+
+}
+
+ #displayFilter{
+   list-style: none;
+   display: inline;
+   width: 250px;
+/*   border-style: solid;
+   border-width: 1px;
+   border-color: red;    */
+}
+
+.filterButton {
+   list-style: none;
+   display: inline;
+/*   border-style: solid;
+   border-width: 1px;
+   border-color: red;    */
+}
+#removeCompleted {
+   display: inline;
+   float: right;
+/*  border: solid;
+   border-width: 1px;
+   border-color: red;    */
+/*  display: none;       */
+}
+ 
+
 .footer {
-   width: 400px;
+   width: 500px;
    height: 28px;
    margin-left: auto;
    margin-right: auto;
