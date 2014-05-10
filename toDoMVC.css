@@ -23,7 +23,7 @@ body {
 .theListEditor {
    display: inline-block;
    width: 500px;
-   height: 32px;
+   height: 30px;
 }
 
 .listChevron {
@@ -72,7 +72,7 @@ body {
 .anItem {
    list-style: none;
    display: block;
-   width: 500px;
+   width: 496px;
    height: 26px;
    background-color: white;
    border-style: solid;
@@ -95,7 +95,7 @@ body {
 }
 
 .listItem {
-   width: 438px;
+   width: 436px;
    height: 26px;
    font-size: 1.25em;
    display: inline-block;
@@ -108,7 +108,7 @@ body {
 }
 
 .removeItem {
-   width: 28px;
+   width: 26px;
    margin: 0;
    padding: 0;
    display: inline; 
