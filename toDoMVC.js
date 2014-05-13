@@ -2,6 +2,11 @@ var ENTER_KEY = 13;
 var ESCAPE_KEY = 27;
 var listCount = 0;
 var completedCount = 0;
+var Action = {
+              id: 0,
+              complete: false,
+              description: ""};
+var actions = [];
 
 $(document).ready(function() {
    var App = {
@@ -11,16 +16,27 @@ $(document).ready(function() {
    };
 
    function addtoList(item) {
+      var action = Action;
+      action.complete = false;
+      action.description = item;
+      actions.push(action);
+/*       var action = Action{id:uuid(),complete:false,description:item};      */
       console.log("enter addtoList");
       console.log("   do: "+item);
-      $("#listTemplate>li").clone().append("#theList");
-/*      $(".listTemplate>li>span.itemCheckOff").clone().add(newLi);
-      $(".listTemplate>li>span.listItem").clone().add(newLi);
-      $(".listTemplate>li>span.removeItem").clone().add(newLi);
-      console.log(newLi);
-      newLi.append("theList");      */
+      $("#listTemplate li").clone(true).appendTo("#theList");
+      var lastLi = $("#theList li").last().find(".listItem").text(item);
       listCount += 1;
+      console.log("   Count: "+listCount);
       $("#listCount").text(listCount);
+   };
+
+   function markDone(doneItem) {
+      console.log("enter markDone: "+doneItem.find(".listItem").text() );
+      doneItem.find(".itemCheckOff").css({"text-decoration":"line-through"});
+      doneItem.find(".listItem").css({"text-decoration":"line-through"});
+      completedCount += 1;
+      console.log("   Completed Count: "+completedCount);
+      $("#removeCompleted span").text(completedCount);
    };
 
    function setListeners() {
@@ -43,17 +59,25 @@ $(document).ready(function() {
       $("#listChevron").on("click",function() {
          console.log("listChevron click in listChevron");
       });
-      $("listEditable").on("",function() {});
+/*      $("listEditable").on("",function() {});
       $("theListDisplay").on("",function() {});
       $("theList").on("",function() {});
-      $("anItem").on("",function() {});
-      $("itemCheckOff").on("",function() {});
-      $("listItem").on("",function() {});
+      $("anItem").on("",function() {});               */
+      $(".itemCheckOff").on("mouseenter",function() {
+         $(this).css({"background-color":"#CDCDCD"});
+      });
+      $(".itemCheckOff").on("mouseleave",function() {
+         $(this).css({"background-color":"white"});
+      });
+      $(".itemCheckOff").on("click",function() {
+         markDone($(this).parent());
+      });
+/*      $("listItem").on("",function() {});
       $("clearFloat").on("",function() {});
       $("counterBar").on("",function() {});
       $("countDiv").on("",function() {});
       $("listCount").on("",function() {});
-      $("displayFilter").on("",function() {});
+      $("displayFilter").on("",function() {});        */
       $("filterButton").on("hover",function() {
          console.log("filterButton hover");
       });
@@ -66,8 +90,7 @@ $(document).ready(function() {
       $("removeCompleted").on("click",function() {
          console.log("removeCompleted click");
       });
-
-      
+  
    };
    setListeners();
    App.init();

@@ -12,20 +12,10 @@
          <div class="theBar"></div>
          <div class="theListEditor">
             <span id="listChevron" class="listChevron">&raquo;</span>
-            <input id="new-todo" class="listEditable" type="text" name="todoDescription" size="32" placeholder="What needs to be done?"></input>
+            <input id="new-todo" class="listEditable" type="text" name="todoDescription" autofocus="" placeholder="  What needs to be done?"></input>
          </div>
          <div class="theListDisplay">
             <ul id="theList">
-               <li class="anItem">
-                  <span class="itemCheckOff">&checkmark;</span>
-                  <span class="listItem">this</span>
-                  <span class="removeItem">x</span>
-               </li>
-               <li class="anItem">
-                  <span class="itemCheckOff">&checkmark;</span>
-                  <span class="listItem">that</span>
-                  <span class="removeItem">x</span>
-               </li>
             </ul>
          </div>
          <div class="clearFloat">&nbsp;</div>
@@ -40,9 +30,9 @@
          </div>
          <div class="clearFloat">&nbsp;</div>
 <!--         <div class="footer">&copy; 2014</div>       -->
-         <div id="listTemplate" hidden>
+         <div id="listTemplate">
             <li class="anItem">
-               <span class="itemCheckOff">-</span>
+               <span class="itemCheckOff">&checkmark;</span>
                <span class="listItem">another</span>
                <span class="removeItem">x</span>
             </li>

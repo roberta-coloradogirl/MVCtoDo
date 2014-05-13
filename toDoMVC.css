@@ -164,7 +164,6 @@ body {
 /*  display: none;       */
 }
  
-
 .footer {
    width: 500px;
    height: 28px;
@@ -172,3 +171,6 @@ body {
    margin-right: auto;
 }
 
+#listTemplate {
+   display: none;
+}
