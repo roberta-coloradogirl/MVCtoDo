@@ -15,28 +15,129 @@ $(document).ready(function() {
       },
    };
 
-   function addtoList(item) {
-      var action = Action;
-      action.complete = false;
-      action.description = item;
-      actions.push(action);
-/*       var action = Action{id:uuid(),complete:false,description:item};      */
+   function saveLocal() {
+      console.log("enter saveLocal:");
+      var memStorageAsString = JSON.stringify(actions);
+      console.log("   memStorageAsString: "+memStorageAsString);
+      localStorage.setItem("todos", memStorageAsString);
+   };
+
+   function addToStorage(actionItem) {
+      console.log("enter addToStorage");
+      actions.push(actionItem);
+      saveLocal();
+   };
+
+   function markCompleteInStorage(actionItem) {
+      console.log("enter markCompleteInStorage");
+      for (var i=0; i<actions.length; i++) {
+         if ( actions[i].id === actionItem.id ) {
+            actions[i].complete = actionItem.complete;
+         }
+      }
+      saveLocal();
+   };
+
+   function removeFromStorage(actionItem) {
+      console.log("enter removeFromStorage");
+   };
+
+   function findInStorage(actionItem) {
+      console.log("enter findInStorage");
+
+   };
+
+   function uuid() {
+/*jshint bitwise:false */
+      var i, random;
+      var uuid = "";
+
+      for (i = 0; i < 32; i++) {
+         random = Math.random() * 16 | 0;
+         if (i === 8 || i === 12 || i === 16 || i === 20) {
+            uuid += "-";
+         }
+         uuid += (i === 12 ? 4 : (i === 16 ? (random & 3 | 8) : random)).toString(16);
+      }
+
+      return uuid;
+   };
+
+   function addtoList(addItem) {
+      var action = {
+                    id: uuid(),
+                    complete: false,
+                    description: addItem,
+                   };
       console.log("enter addtoList");
-      console.log("   do: "+item);
+      var actionString = JSON.stringify(action);
+      console.log("   do: "+actionString);
+      addToStorage(action);
+// add todo item to list
       $("#listTemplate li").clone(true).appendTo("#theList");
-      var lastLi = $("#theList li").last().find(".listItem").text(item);
+      $("#theList li").last().find(".listItem").text(action.description);
+      $("#theList li").last().find(".itemID").text(action.id);
+// update number of items in the list
       listCount += 1;
       console.log("   Count: "+listCount);
       $("#listCount").text(listCount);
+      if (listCount === 1) {
+         $("#listCountDescription").text(" todo item");
+         $("#filterButtonAll").css({"font-weight":"bold"});
+      } else {
+         $("#listCountDescription").text(" todo items");
+      };
+// give the action object back to the caller
+      return action;
    };
 
    function markDone(doneItem) {
-      console.log("enter markDone: "+doneItem.find(".listItem").text() );
+      var action = {
+                    id: doneItem.find(".itemID").text(),
+                    complete: true,
+                    description: doneItem.find(".listItem").text(),
+                   };
+      console.log("enter markDone: ");
+      console.log("   Mark as complete:"+action.description );
+// mark todo item complete in list
+      doneItem.find(".itemID").text();
       doneItem.find(".itemCheckOff").css({"text-decoration":"line-through"});
       doneItem.find(".listItem").css({"text-decoration":"line-through"});
+// increment and display complete count
       completedCount += 1;
       console.log("   Completed Count: "+completedCount);
       $("#removeCompleted span").text(completedCount);
+// mark todo item complete in storage
+      markCompleteInStorage(action);
+   };
+
+   function clearToDoList() {
+      console.log("enter clearToDoList");
+      $("#theList li").remove();
+   };
+
+   function displayAllToDoes() {
+      console.log("enter displayAllToDoes");
+      clearToDoList();
+      for (var i=0; i<actions.length; i++) {
+         var action = actions[i];
+         $("#listTemplate li").clone(true).appendTo("#theList");
+         $("#theList li").last().find(".itemID").text(action.id);
+         $("#theList li").last().find(".complete").text(action.complete);
+         $("#theList li").last().find(".listItem").text(action.description);
+         if (action.complete) {
+            $("#theList li").last().find(".itemCheckOff").css({"text-decoration":"line-through"});
+            $("#theList li").last().find(".listItem").css({"text-decoration":"line-through"});
+         };
+      };
+   };
+
+   function displayActiveToDoes() {
+      clearToDoList();
+   };
+
+   function displayCompletedToDoes() {
+      clearToDoList();
    };
 
    function setListeners() {
@@ -78,9 +179,35 @@ $(document).ready(function() {
       $("countDiv").on("",function() {});
       $("listCount").on("",function() {});
       $("displayFilter").on("",function() {});        */
-      $("filterButton").on("hover",function() {
-         console.log("filterButton hover");
+      $(".filterButton").on("mouseenter",function() {
+         console.log("filterButton begin hover");
+         $(this).css({"background-color":"white"});
       });
+      $(".filterButton").on("mouseleave",function() {
+         console.log("filterButton end hover");
+         $(this).css({"background-color":"#CDCDCD"});
+      });
+      $("#filterButtonAll").on("click",function() {
+         $(this).css({"font-weight":"bold"});
+         $("#filterButtonActive").css({"font-weight":"normal"});
+         $("#filterButtonCompleted").css({"font-weight":"normal"});
+         displayAllToDoes();
+      });
+
+      $("#filterButtonActive").on("click",function() {
+         $(this).css({"font-weight":"bold"});
+         $("#filterButtonAll").css({"font-weight":"normal"});
+         $("#filterButtonCompleted").css({"font-weight":"normal"});
+         displayActiveToDoes();
+      });
+
+      $("#filterButtonCompleted").on("click",function() {
+         $(this).css({"font-weight":"bold"});
+         $("#filterButtonAll").css({"font-weight":"normal"});
+         $("#filterButtonActive").css({"font-weight":"normal"});
+         displayCompletedToDoes();
+      });
+         
       $("filterButton").on("click",function() {
          console.log("filterButton click");
       });

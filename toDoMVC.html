@@ -20,11 +20,11 @@
          </div>
          <div class="clearFloat">&nbsp;</div>
          <div class="counterBar">
-            <div id="countDiv"><span id="listCount">#</span><span> todo items</span></div>
+            <div id="countDiv"><span id="listCount">#</span><span id="listCountDescription"> todo items</span></div>
             <ul id="displayFilter">
-               <li class="filterButton">All</li>
-               <li class="filterButton">Active</li>
-               <li class="filterButton">Completed</li>
+               <li id="filterButtonAll" class="filterButton">All</li>
+               <li id="filterButtonActive" class="filterButton">Active</li>
+               <li id="filterButtonCompleted" class="filterButton">Completed</li>
             </ul>
             <button id="removeCompleted">clear (<span>#</span>) completed </button>
          </div>
@@ -32,6 +32,7 @@
 <!--         <div class="footer">&copy; 2014</div>       -->
          <div id="listTemplate">
             <li class="anItem">
+               <span class="itemID">id</span>
                <span class="itemCheckOff">&checkmark;</span>
                <span class="listItem">another</span>
                <span class="removeItem">x</span>

@@ -80,6 +80,10 @@ body {
    border-color: #4C1F00;
 }
 
+.itemID {
+   display: none;
+}
+
 .itemCheckOff {
    font-size: 1.125em;
    display: inline;
@@ -155,6 +159,13 @@ body {
    border-width: 1px;
    border-color: red;    */
 }
+
+#filterButtonAll { }
+
+#filterButtonActive { }
+
+#filterButtonCompleted { }
+
 #removeCompleted {
    display: inline;
    float: right;
